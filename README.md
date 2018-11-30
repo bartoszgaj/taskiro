@@ -6,4 +6,5 @@ In first terminal run
 
 In second terminal run
 cd app
+yarn install
 yarn start
