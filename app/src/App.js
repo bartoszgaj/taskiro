@@ -7,15 +7,26 @@ class App extends Component{
             <div>
                 <TopBar/>
                 <LoginBox />
+                <Footer />
             </div>
     )
     }
 }
 
+
 const TopBar = ({ }) =>
-    <div id="topbar">
+    <header>
         Taskiro
-    </div>;
+    </header>;
+
+
+const Footer = ({}) =>
+    <footer>
+        Taskiro. All rights reserved &copy;
+    </footer>;
+
+
+
 
 
 
