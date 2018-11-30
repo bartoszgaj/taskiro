@@ -1,0 +1,34 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+
+#login-box{
+    margin: 50px auto;
+    border: 2px solid black;
+    width: 450px;
+    padding:0;
+    box-sizing: border-box;
+}
+
+#login-box ul{
+    list-style-type: none;
+    display: flex;
+    width: 100%;
+    margin:0;
+    border-bottom: 2px solid black;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+#login-box ul li{
+    width: 50%;
+    height: 35px;
+    text-align: center;
+}
+
+#login-box form input{
+    width: 300px;
+    display: block;
+    margin: 10px auto;
+}
