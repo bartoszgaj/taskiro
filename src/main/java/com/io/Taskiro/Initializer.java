@@ -22,10 +22,10 @@ class Initializer implements CommandLineRunner {
     final static int NUMBER_OF_USERS = 30;
     final static String[] NAMES = {"Julia","Zuzanna", "Maja","Alicja", "Maria", "Jakub", "Jan", "Szymon", "Bartosz", "Dawid"};
     final static String[] SURNAMES = {"Nowak", "Wojcik", "Kowalczyk", "Wozniak", "Mazur", "Krawczyk", "Wieczorek", "Adamczyk", "Dudek", "Pawlak"};
-    final static String[] TITLES = {"Koszenie trawy", "Zmywanie naczyń", "Wynieś śmieci", "Potrzebuję wyprowadzić psa", "Trzeba iść do sklepu", "2 worki śmieci", "Kup mi mleko", "32 psy szukają kochającej pani", "Potrzebuję projekt na IO", "Szkoda gadać"};
+    final static String[] TITLES = {"Koszenie trawy", "Zmywanie naczyń", "Wynieś śmieci", "Przewóz żywyghf zwierząt, ALPAKI", "Trzeba iść do sklepu", "2 worki śmieci", "Kup mi mleko", "32 psy szukają kochającej pani", "Potrzebuję projekt na IO", "Szkoda gadać"};
     final static double MIN_LAT =50.046934;
-    final static double MAX_LAT =19.918743;
-    final static double MIN_LNG =50.069025;
+    final static double MAX_LAT =50.069025;
+    final static double MIN_LNG =19.918743;
     final static double MAX_LNG =19.965103;
 
     final static int NUMBER_OF_TASKS = 50;
