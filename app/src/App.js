@@ -14,7 +14,7 @@ class App extends Component{
 
 const TopBar = ({ }) =>
     <div id="topbar">
-        Topbar
+        Taskiro
     </div>;
 
 

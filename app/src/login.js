@@ -23,7 +23,7 @@ class LoginBox extends Component{
                         </li>
                     </ul>
 
-                    <Route exact path="/login" component={() => <Login onChange={this.onChange}/>} />
+                    <Route exact path="/login" component={Login} />
                     <Route path="/register" component={Register} />
                     <Redirect from="*" to="/login"/>
                 </div>
@@ -32,10 +32,10 @@ class LoginBox extends Component{
     }
 }
 
-const Login = ({onChange}) =>
+const Login = ({}) =>
     <div id="login">
         SIGN IN
-        <LoginForm onChange={onChange}/>
+        <LoginForm />
     </div>;
 
 
