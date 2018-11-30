@@ -5,11 +5,17 @@ class App extends Component{
     render(){
         return(
             <div>
-            <LoginBox />
+                <TopBar/>
+                <LoginBox />
             </div>
     )
     }
 }
+
+const TopBar = ({ }) =>
+    <div id="topbar">
+        Topbar
+    </div>;
 
 
 

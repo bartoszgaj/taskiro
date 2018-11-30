@@ -3,9 +3,15 @@ body{
     margin: 0;
 }
 
+#topbar{
+    margin:0;
+    width:100%;
+    height: 50px;
+    background: chartreuse;
+}
+
 #login-box{
     margin: 50px auto;
-    border: 2px solid black;
     width: 450px;
     padding:0;
     box-sizing: border-box;
@@ -16,7 +22,6 @@ body{
     display: flex;
     width: 100%;
     margin:0;
-    border-bottom: 2px solid black;
     box-sizing: border-box;
     padding: 0;
 }
@@ -25,10 +30,51 @@ body{
     width: 50%;
     height: 35px;
     text-align: center;
+    border: 1px solid black;
+    border-bottom: none;
+    padding: 7px 0;
+    box-sizing: border-box;
+}
+
+#login-box ul li a{
+    text-decoration: none;
+}
+
+#login-box form{
+    margin: 35px 0;
 }
 
 #login-box form input{
-    width: 300px;
+    width: 350px;
+    height: 50px;
     display: block;
     margin: 10px auto;
+    border-radius: 0;
+}
+
+#login-box form input[type="text"],input[type="password"]{
+    border: 1px solid slategray;
+    padding: 0 10px;
+    font-size: 18px;
+    box-sizing: border-box;
+}
+
+#login-box form input[type="text"],input[type="password"]:focus{
+    border:1px solid chartreuse;
+}
+
+#login-box form input[type="submit"]{
+    background-color: chartreuse;
+    color:white;
+    border: 0;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+#login{
+    border: 1px solid black;
+    text-align: center;
+    font-weight: bold;
+    font-size: 19px;
+    padding: 20px 0;
 }
