@@ -17,12 +17,12 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api")
-class GroupController {
+class UserController {
 
-    private final Logger log = LoggerFactory.getLogger(GroupController.class);
+    private final Logger log = LoggerFactory.getLogger(UserController.class);
     private UserRepository userRepository;
 
-    public GroupController(UserRepository userRepository) {
+    public UserController(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
