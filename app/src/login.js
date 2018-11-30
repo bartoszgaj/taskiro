@@ -6,6 +6,13 @@ class LoginBox extends Component{
 
     constructor(props) {
         super(props);
+
+        // this.state = {path:''}
+        // if (path != '/register') {
+        //
+        // }
+        //
+        // this.setState({path: myPath})
     }
 
 
@@ -23,19 +30,25 @@ class LoginBox extends Component{
                         </li>
                     </ul>
 
-                    <Route exact path="/login" component={() => <Login onChange={this.onChange}/>} />
-                    <Route path="/register" component={Register} />
-                    <Redirect from="*" to="/login"/>
+                    <Route exact path="/login" component={Login} />
+                    <Route exact path="/register" component={Register} />
+                    {/*<Route exact path="/" render={() => (*/}
+                        {/*loggedIn ? (*/}
+                            {/*<Redirect to="/login"/>*/}
+                        {/*) : (*/}
+                            {/*<PublicHomePage/>*/}
+                        {/*)*/}
+                    {/*)}/>*/}
                 </div>
             </Router>
         )
     }
 }
 
-const Login = ({onChange}) =>
+const Login = ({}) =>
     <div id="login">
         SIGN IN
-        <LoginForm onChange={onChange}/>
+        <LoginForm/>
     </div>;
 
 
