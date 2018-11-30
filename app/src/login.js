@@ -34,6 +34,7 @@ class LoginBox extends Component{
 
 const Login = ({onChange}) =>
     <div id="login">
+        SIGN IN
         <LoginForm onChange={onChange}/>
     </div>;
 
@@ -84,9 +85,6 @@ class Register extends Component{
     }
 }
 
-const TopBar = ({ }) =>
-    <div>
-        Topbar
-    </div>;
+
 
     export default LoginBox;
