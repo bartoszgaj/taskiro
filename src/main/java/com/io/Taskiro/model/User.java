@@ -24,9 +24,6 @@ public class User {
     private String city;
     private String stateOrProvince;
 
-    public User(String name) {
-    }
-
 
 //    @ManyToOne(cascade=CascadeType.PERSIST)
 //    private User user;
