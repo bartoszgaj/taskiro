@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Link, Redirect } from "react-router-dom
 import Login from './login.js';
 import Register from './register.js';
 
-
 class App extends Component{
     render(){
         return(
@@ -24,8 +23,6 @@ class Routing extends Component{
 
 
     render(){
-
-
         return(
             <Router>
                 <div id="login-box">
@@ -48,22 +45,14 @@ class Routing extends Component{
     }
 }
 
-
 const TopBar = ({ }) =>
     <header>
         Taskiro
     </header>;
 
-
 const Footer = ({}) =>
     <footer>
         Taskiro. All rights reserved &copy;
     </footer>;
-
-
-
-
-
-
 
 export default App;
