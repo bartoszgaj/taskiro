@@ -22,13 +22,11 @@ class Login extends Component{
 
     onSubmit(event){
         event.preventDefault();
-        console.log(this.state);
-        /*
-        axios.post('', {login: this.state.login, password: this.state.password}).then(function(response){
-            console.log(response);
-        }).catch(function(error){
-           console.log(error);
-        });*/
+        // console.log(this.state);
+
+
+
+
         this.setState({login: '', password: ''});
 
     }
