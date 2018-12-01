@@ -1,7 +1,8 @@
 
 import React, { Component } from 'react';
 import {Map, Marker, InfoWindow, GoogleApiWrapper} from 'google-maps-react';
-import Pane from "./Pane";
+import Button from "react-bootstrap/es/Button";
+import AddTaskModal from "./AddTaskModal";
 
 
 export class MapContainer extends Component {
@@ -9,7 +10,9 @@ export class MapContainer extends Component {
         showingInfoWindow: false,
         activeMarker: {},
         selectedPlace: {},
+        isOpen: false
     };
+
 
     onMarkerClick = (props, marker, e) =>
         this.setState({
@@ -27,12 +30,35 @@ export class MapContainer extends Component {
         }
     };
 
+    onAddButtonClicked = () => {
+
+    }
+
 
     render() {
         return (
-            <Map google={this.props.google}
+            <div>
+                <Button style={{position: 'fixed', zIndex: 10, bottom: 80, right: 50}}
+                onClick={this.onAddButtonClicked}>Dodaj<br/>Task</Button>
+
+                <Map google={this.props.google}
                  onClick={this.onMapClicked}
-                 style={{width: '100%', height: '100%', position: 'relative'}}
+                 initialCenter={{
+                     lat: 50.06,
+                     lng: 19.94
+                 }}
+                 defaultOptions={{
+                     // these following 7 options turn certain controls off see link below
+                     streetViewControl: false,
+                     scaleControl: false,
+                     mapTypeControl: false,
+                     panControl: false,
+                     zoomControl: false,
+                     rotateControl: false,
+                     fullscreenControl: false
+                 }}
+                 disableDefaultUI
+                 style={{width: '100%', height: '100%', position: 'relative',zIndex: 0}}
                  className={'map'}
                  zoom={14}>
 
@@ -54,9 +80,12 @@ export class MapContainer extends Component {
                 <InfoWindow
                     marker={this.state.activeMarker}
                     visible={this.state.showingInfoWindow}>
-                    <Pane/>
+
                 </InfoWindow>
             </Map>
+
+
+        </div>
         );
     }
 }
