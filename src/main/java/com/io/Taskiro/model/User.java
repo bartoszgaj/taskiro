@@ -30,6 +30,8 @@ public class User {
     private String password;
     @NonNull
     private Integer phone;
+//    @OneToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+//    private Set<Task> tasks;
 
 //    @ManyToOne(cascade=CascadeType.PERSIST)
 //    private User user;

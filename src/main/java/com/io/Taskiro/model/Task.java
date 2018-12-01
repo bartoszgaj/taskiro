@@ -6,10 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Date;
 
@@ -37,5 +34,7 @@ public class Task {
     private LocalDateTime deadline;
     @NonNull
     private LocalDateTime addTime;
+    @ManyToOne
+    private User user;
 
 }

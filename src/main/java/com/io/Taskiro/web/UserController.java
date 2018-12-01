@@ -43,6 +43,17 @@ class UserController {
         return user.map(response -> ResponseEntity.ok().body(response))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
+    @PostMapping("/user/login")
+    ResponseEntity<?> getUser(@RequestParam String login, @RequestParam String password) {
+        User user = userRepository.findByLogin(login);
+        if(user!=null && user.getPassword().equals(password)){
+            return ResponseEntity.ok().body(user);
+        }
+        else{
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        }
+    }
+
 
 //    @PostMapping("/user")
 //    ResponseEntity<User> createUser(@Valid @RequestBody User user) throws URISyntaxException {
