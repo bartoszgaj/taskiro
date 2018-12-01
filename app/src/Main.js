@@ -2,15 +2,24 @@ import React, { Component } from 'react';
 import SimpleMap from './MapContainer.js';
 import TopBar from './TopBar.js';
 
+import { BrowserRouter as Router, Route, Link, Redirect } from "react-router-dom";
+import Tutorial from "./Tutorial";
+
 
 
 class Main extends Component{
     render(){
         return(
             <div>
-                <TopBar />
-                <SimpleMap />
-                <Footer />
+
+                <Router>
+                    <div>
+                    <TopBar />
+                    <Route exact path={"/map"} component={SimpleMap}/>
+                    <Route path={"/tutorial"} component={Tutorial}/>
+                    </div>
+                </Router>
+                <Footer/>
             </div>
         )
     }
