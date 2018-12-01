@@ -6,6 +6,7 @@
     "axios": "^0.18.0",
     "google-map-react": "^1.1.1",
     "google-maps-react": "latest",
+    "qs": "^6.6.0",
     "react": "^16.6.3",
     "react-bootstrap": "^0.32.4",
     "react-dom": "^16.6.3",

@@ -1,5 +1,6 @@
 
 import React, { Component } from 'react';
+import axios from 'axios';
 import {Map, Marker, InfoWindow, GoogleApiWrapper} from 'google-maps-react';
 import Button from "react-bootstrap/es/Button";
 import AddTaskModal from "./AddTaskModal";
@@ -7,11 +8,15 @@ import AddTaskModal from "./AddTaskModal";
 
 export class MapContainer extends Component {
     state = {
+        tasks: [{}],
         showingInfoWindow: false,
         activeMarker: {},
         selectedPlace: {},
-        isOpen: false
     };
+
+    componentDidMount() {
+        this.retrieveTasks();
+    }
 
 
     onMarkerClick = (props, marker, e) =>
@@ -29,11 +34,6 @@ export class MapContainer extends Component {
             })
         }
     };
-
-    onAddButtonClicked = () => {
-
-    }
-
 
     render() {
         return (
@@ -60,7 +60,16 @@ export class MapContainer extends Component {
                  disableDefaultUI
                  style={{width: '100%', height: '100%', position: 'relative',zIndex: 0}}
                  className={'map'}
-                 zoom={14}>
+                 zoom={14}
+           >
+
+                {this.state.tasks.map(function(task) {
+                        return <Marker
+                            name={task.title}
+                            position={task.coords}
+                        />
+                    }
+                )}
 
                 <Marker
                     onClick={this.onMarkerClick}
@@ -88,6 +97,27 @@ export class MapContainer extends Component {
         </div>
         );
     }
+
+    retrieveTasks = () => {
+        console.log('Retrieving tasks...');
+
+        axios.get('/api/tasks')
+            .then( (response) => {
+                // handle success
+                const tasksRtrv = response.data;
+                this.setState({
+                    tasks: tasksRtrv
+                })
+            })
+            .catch( (error) => {
+                // handle error
+                console.log(error);
+            })
+            .then( () => {
+                // always executed
+            });
+    }
+
 }
 
 export default GoogleApiWrapper({
