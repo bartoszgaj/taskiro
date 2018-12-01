@@ -48,8 +48,9 @@ class Initializer implements CommandLineRunner {
             String email = name + "." + surname + "@gmail.com";
             String login = name + surname;
             String password = "123456";
+            Integer phone = 123123123;
 
-            userRepository.save(new User(name, surname, email, login, password));
+            userRepository.save(new User(name, surname, email, login, password,phone));
         }
 
         for (int i = 0; i < NUMBER_OF_TASKS; i++) {
