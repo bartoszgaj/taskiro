@@ -22,13 +22,13 @@ class Login extends Component{
 
     onSubmit(event){
         event.preventDefault();
-        console.log(this.state);
-        /*
-        axios.post('', {login: this.state.login, password: this.state.password}).then(function(response){
+        //console.log(this.state);
+        //fetch('api/user/login', {method: 'POST', headers: {'Accept': }})
+        axios.post('http://localhost:8080/api/user/login', {login: 'MariaKrawczyk', password: "123456"}).then(function(response){
             console.log(response);
         }).catch(function(error){
            console.log(error);
-        });*/
+        });
         this.setState({login: '', password: ''});
 
     }
