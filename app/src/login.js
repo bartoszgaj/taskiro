@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './styles/login.css';
 import axios from 'axios';
+import qs from 'qs'
 
 
 
@@ -22,13 +23,16 @@ class Login extends Component{
 
     onSubmit(event){
         event.preventDefault();
-        //console.log(this.state);
-        //fetch('api/user/login', {method: 'POST', headers: {'Accept': }})
-        axios.post('http://localhost:8080/api/user/login', {login: 'MariaKrawczyk', password: "123456"}).then(function(response){
+        console.log(this.state);
+
+        axios.post('/api/user/login', qs.stringify({
+            login: this.state.login, password:this.state.password
+        })).then(function(response){
             console.log(response);
         }).catch(function(error){
-           console.log(error);
+            console.log(error);
         });
+
         this.setState({login: '', password: ''});
 
     }
