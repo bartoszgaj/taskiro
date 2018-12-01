@@ -1,6 +1,5 @@
 
 import React, { Component } from 'react';
-import {Map, Marker, GoogleApiWrapper} from 'google-maps-react';
 import axios from 'axios';
 import {Map, Marker, InfoWindow, GoogleApiWrapper} from 'google-maps-react';
 import Pane from "./Pane";
