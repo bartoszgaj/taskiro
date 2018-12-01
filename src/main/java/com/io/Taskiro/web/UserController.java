@@ -1,10 +1,12 @@
 package com.io.Taskiro.web;
 
 
+import com.io.Taskiro.model.TaskRepository;
 import com.io.Taskiro.model.User;
 import com.io.Taskiro.model.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,9 +20,13 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api")
 class UserController {
+    @Autowired
+    private UserRepository userRepository;
+    @Autowired
+    private TaskRepository taskRepository;
+
 
     private final Logger log = LoggerFactory.getLogger(UserController.class);
-    private UserRepository userRepository;
 
     public UserController(UserRepository userRepository) {
         this.userRepository = userRepository;
@@ -38,10 +44,24 @@ class UserController {
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
+//    @PostMapping("/user")
+//    ResponseEntity<User> createUser(@Valid @RequestBody User user) throws URISyntaxException {
+//        log.info("Request to create user: {}", user);
+//        User result = userRepository.save(user);
+//        return ResponseEntity.created(new URI("/api/user/" + result.getId()))
+//                .body(result);
+//    }
     @PostMapping("/user")
-    ResponseEntity<User> createUser(@Valid @RequestBody User user) throws URISyntaxException {
-        log.info("Request to create user: {}", user);
-        User result = userRepository.save(user);
+    ResponseEntity<User> createUser(@RequestParam String name,
+                                    @RequestParam String surname,
+                                    @RequestParam String email,
+                                    @RequestParam String login,
+                                    @RequestParam String password,
+                                    @RequestParam Integer phone) throws URISyntaxException {
+        log.info("Request to create user: {}");
+        User n = new User(name,surname,email,login,password,phone);
+
+        User result = userRepository.save(n);
         return ResponseEntity.created(new URI("/api/user/" + result.getId()))
                 .body(result);
     }
