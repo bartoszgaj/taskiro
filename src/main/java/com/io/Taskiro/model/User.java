@@ -28,7 +28,8 @@ public class User {
     private String login;
     @NonNull
     private String password;
-
+    @NonNull
+    private Integer phone;
 
 //    @ManyToOne(cascade=CascadeType.PERSIST)
 //    private User user;

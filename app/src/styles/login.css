@@ -1,20 +1,25 @@
 body{
     padding: 0;
     margin: 0;
+    background-color: #282c34;
 }
 
-#topbar{
-    margin:0;
+header{
+    margin:0 0 150px;
     width:100%;
-    height: 50px;
-    background: chartreuse;
+    height: 70px;
+    background: limegreen;
 }
 
 #login-box{
-    margin: 50px auto;
-    width: 450px;
+    margin: 50px auto 200px;
+    width: 800px;
     padding:0;
     box-sizing: border-box;
+    border-radius: 0 0 10px 10px;
+    -webkit-box-shadow: 10px 10px 5px -2px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px -2px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 5px -2px rgba(0,0,0,0.75);
 }
 
 #login-box ul{
@@ -28,16 +33,26 @@ body{
 
 #login-box ul li{
     width: 50%;
-    height: 35px;
+    height: 45px;
     text-align: center;
-    border: 1px solid black;
-    border-bottom: none;
-    padding: 7px 0;
+    padding: 15px 0;
     box-sizing: border-box;
+    border-radius: 10px 10px 0 0;
+    background-color: limegreen;
 }
+
+#login-box ul li:last-child{
+    border-left: 2px solid #282c34;
+}
+
+#login-box ul li:hover{
+    background-color: forestgreen;
+}
+
 
 #login-box ul li a{
     text-decoration: none;
+    color:white;
 }
 
 #login-box form{
@@ -45,7 +60,7 @@ body{
 }
 
 #login-box form input{
-    width: 350px;
+    width: 450px;
     height: 50px;
     display: block;
     margin: 10px auto;
@@ -59,22 +74,101 @@ body{
     box-sizing: border-box;
 }
 
-#login-box form input[type="text"],input[type="password"]:focus{
-    border:1px solid chartreuse;
+#login-box form input[type="text"]:focus,input[type="password"]:focus{
+    border:1px solid limegreen;
 }
 
 #login-box form input[type="submit"]{
-    background-color: chartreuse;
+    background-color: limegreen;
     color:white;
     border: 0;
     font-size: 18px;
     margin-top: 20px;
 }
 
+#login-box form input[type="submit"]:hover{
+    cursor: pointer;
+    background-color: forestgreen;
+}
+
 #login{
     border: 1px solid black;
     text-align: center;
     font-weight: bold;
-    font-size: 19px;
+    font-size: 20px;
     padding: 20px 0;
+    background-color: white;
+    border-radius: 0 0 10px 10px;
+}
+
+footer{
+    height: 50px;
+    width: 100%;
+    background-color: limegreen;
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    color:white;
+    font-size: 19px;
+    padding-top: 10px;
+    box-sizing: border-box;
+}
+
+
+@media screen and (max-width: 900px){
+
+    #login-box{
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 590px){
+
+    #login-box form input{
+        width: 85%;
+    }
+}
+
+@media screen and (max-width: 550px){
+
+    header{
+        height: 100px;
+        margin-bottom: 15px;
+    }
+
+    #login-box{
+        margin-top:50px;
+        width: 100%;
+        border-radius: 0;
+        margin-bottom: 90px;
+    }
+
+    #login-box ul{
+        display: block;
+    }
+
+    #login-box ul li{
+        width: 100%;
+        border-radius: 0;
+        border: none;
+    }
+
+    #login-box ul li:last-child{
+        border-left: none;
+    }
+
+    #login-box ul li:first-child{
+        border-bottom: 2px solid #282c34;
+    }
+
+    #login{
+        border: none;
+        border-radius: 0;
+    }
+
+    footer{
+        position: relative;
+        margin-top: 20px;
+    }
+
 }

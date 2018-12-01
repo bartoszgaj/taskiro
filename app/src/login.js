@@ -1,58 +1,10 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link, Redirect } from "react-router-dom";
 import './styles/login.css';
-
-class LoginBox extends Component{
-
-    constructor(props) {
-        super(props);
-
-        // this.state = {path:''}
-        // if (path != '/register') {
-        //
-        // }
-        //
-        // this.setState({path: myPath})
-    }
+import axios from 'axios';
 
 
-    render(){
-        return(
 
-            <Router>
-                <div id="login-box">
-                    <ul>
-                        <li>
-                            <Link to="/login">Log in</Link>
-                        </li>
-                        <li>
-                            <Link to="/register">Register</Link>
-                        </li>
-                    </ul>
-
-                    <Route exact path="/login" component={Login} />
-                    <Route exact path="/register" component={Register} />
-                    {/*<Route exact path="/" render={() => (*/}
-                        {/*loggedIn ? (*/}
-                            {/*<Redirect to="/login"/>*/}
-                        {/*) : (*/}
-                            {/*<PublicHomePage/>*/}
-                        {/*)*/}
-                    {/*)}/>*/}
-                </div>
-            </Router>
-        )
-    }
-}
-
-const Login = ({}) =>
-    <div id="login">
-        SIGN IN
-        <LoginForm/>
-    </div>;
-
-
-class LoginForm extends Component{
+class Login extends Component{
 
     constructor(props){
         super(props);
@@ -71,7 +23,14 @@ class LoginForm extends Component{
     onSubmit(event){
         event.preventDefault();
         console.log(this.state);
+        /*
+        axios.post('', {login: this.state.login, password: this.state.password}).then(function(response){
+            console.log(response);
+        }).catch(function(error){
+           console.log(error);
+        });*/
         this.setState({login: '', password: ''});
+
     }
 
     onChange(event) {
@@ -79,25 +38,26 @@ class LoginForm extends Component{
     }
 
     render(){
-        return(
-            <form onSubmit={this.onSubmit}>
-                <input type="text" name="login" placeholder="login" onChange={this.onChange} required/>
-                <input type="password" name="password" placeholder="Hasło" onChange={this.onChange} required/>
+        return (
+            <div id="login">
+                SIGN IN
+                <LoginForm onChange={this.onChange} onSubmit={this.onSubmit}/>
+            </div>
+        )
+    }
+}
+
+
+
+const LoginForm =({onChange, onSubmit})=>
+            <form onSubmit={onSubmit}>
+                <input type="text" name="login" placeholder="login" onChange={onChange} required/>
+                <input type="password" name="password" placeholder="Hasło" onChange={onChange} required/>
                 <input type="submit" value="Zaloguj się"/>
-            </form>
-        )
-    }
-}
-
-
-class Register extends Component{
-    render(){
-        return(
-            <h2>Register</h2>
-        )
-    }
-}
+            </form>;
 
 
 
-    export default LoginBox;
+
+
+export default Login;
