@@ -4,15 +4,29 @@ import axios from 'axios';
 import {Map, Marker, InfoWindow, GoogleApiWrapper} from 'google-maps-react';
 import Button from "react-bootstrap/es/Button";
 import AddTaskModal from "./AddTaskModal";
+import Popup from "./Popup";
 
 
 export class MapContainer extends Component {
-    state = {
-        tasks: [{}],
-        showingInfoWindow: false,
-        activeMarker: {},
-        selectedPlace: {},
-    };
+
+    constructor() {
+        super();
+        this.state = {
+            showPopup: false,
+            tasks: [{}],
+            showingInfoWindow: false,
+            activeMarker: {},
+            selectedPlace: {},
+        };
+    }
+    togglePopup() {
+        this.setState({
+            showPopup: !this.state.showPopup
+        });
+    }
+
+
+
 
     componentDidMount() {
         this.retrieveTasks();
@@ -39,7 +53,17 @@ export class MapContainer extends Component {
         return (
             <div>
                 <Button style={{position: 'fixed', zIndex: 10, bottom: 80, right: 50}}
-                onClick={this.onAddButtonClicked}>Dodaj<br/>Task</Button>
+                        onClick={this.togglePopup.bind(this)}>Dodaj<br/>Task</Button>
+
+
+                {this.state.showPopup ?
+                    <Popup
+                        text='Close Me'
+                        closePopup={this.togglePopup.bind(this)}
+                    />
+                    : null
+                }
+
 
                 <Map google={this.props.google}
                  onClick={this.onMapClicked}
@@ -123,3 +147,4 @@ export class MapContainer extends Component {
 export default GoogleApiWrapper({
     apiKey: ('AIzaSyBRFc0HsUJAA1JNf71DWH96Gs1Wdz6vb3E')
 })(MapContainer)
+
