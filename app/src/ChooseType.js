@@ -21,7 +21,7 @@ class ChooseType extends React.Component {
                 <div className='popup_inner'>
                     <table>
                         <tr>
-                            <td><button><img src={car} alt="my image"   /></button></td>
+                            <td><button><img src={car} alt="my image"  onClick={this.props.changePopupState} /></button></td>
                             <td><button><img src={cart} alt="my image" onClick={this.props.changePopupState} /></button></td>
                             <td><button><img src={dog} alt="my image" onClick={this.props.changePopupState} /></button></td>
                             <td><button><img src={lawn} alt="my image" onClick={this.props.changePopupState} /></button></td>
