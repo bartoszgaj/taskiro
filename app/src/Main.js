@@ -14,8 +14,11 @@ class Main extends Component{
                 <Router>
                     <div>
                     <TopBar />
-                    <Route exact path="/map" component={SimpleMap}/>
-                    <Route path="/tutorial" component={Tutorial}/>
+                    <Route exact path={"/map"} component={SimpleMap}/>
+                    <Route path={"/tutorial"} component={Tutorial}/>
+                    <Route path="*" render={() => (
+                        <Redirect to="/map"/>
+                    )}/>
                     </div>
                 </Router>
                 <Footer/>

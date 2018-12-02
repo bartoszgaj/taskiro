@@ -2,12 +2,11 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import {Map, Marker, InfoWindow, GoogleApiWrapper} from 'google-maps-react';
 import Button from "react-bootstrap/es/Button";
-//import AddTaskModal from "./AddTaskModal";
-//import {MapContainer} from "./MapContainer";
 import './MapContainer.css'
+import AddTaskModal from "./AddTaskModal";
+import Popup from "./Popup";
 
-
-export class NewMapContainer extends Component{
+export class MapContainer extends Component{
 
     constructor(props){
         super(props);
@@ -19,12 +18,20 @@ export class NewMapContainer extends Component{
             showingInfoWindow: false,
             activeMarker: {},
             selectedPlace: {},
+            showPopup: false,
         };
 
 
+        this.togglePopup = this.togglePopup.bind(this);
         this.onMarkerClick = this.onMarkerClick.bind(this);
         this.onMapClick = this.onMapClick.bind(this);
-        this.onAddButtonClick = this.onAddButtonClick.bind(this);
+    }
+
+
+    togglePopup() {
+        this.setState({
+            showPopup: !this.state.showPopup
+        });
     }
 
 
@@ -62,10 +69,6 @@ export class NewMapContainer extends Component{
         }
     }
 
-    onAddButtonClick(){
-        console.log('clicked');
-    }
-
     componentDidMount() {
         this.retrieveTasks();
     }
@@ -75,7 +78,17 @@ export class NewMapContainer extends Component{
         return (
             <div id="map">
                 <Button style={{position: 'fixed', zIndex: 10, bottom: 80, right: 50}}
-                        onClick={this.onAddButtonClick}>Dodaj<br/>Task</Button>
+                        onClick={this.togglePopup.bind(this)}>Dodaj<br/>Task</Button>
+
+
+                {this.state.showPopup ?
+                    <Popup
+                        text='Close Me'
+                        closePopup={this.togglePopup.bind(this)}
+                    />
+                    : null
+                }
+
 
                 <Map google={this.props.google}
                      onClick={this.onMapClick}
@@ -137,4 +150,5 @@ export class NewMapContainer extends Component{
 
 export default GoogleApiWrapper({
     apiKey: ('AIzaSyBRFc0HsUJAA1JNf71DWH96Gs1Wdz6vb3E')
-})(NewMapContainer)
+})(MapContainer)
+
