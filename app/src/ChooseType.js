@@ -22,15 +22,15 @@ class ChooseType extends React.Component {
                     <table>
                         <tr>
                             <td><button><img src={car} alt="my image"   /></button></td>
-                            <td><button><img src={cart} alt="my image" onClick={this.buttonClicked} /></button></td>
-                            <td><button><img src={dog} alt="my image" onClick={this.buttonClicked} /></button></td>
-                            <td><button><img src={lawn} alt="my image" onClick={this.buttonClicked} /></button></td>
+                            <td><button><img src={cart} alt="my image" onClick={this.props.changePopupState} /></button></td>
+                            <td><button><img src={dog} alt="my image" onClick={this.props.changePopupState} /></button></td>
+                            <td><button><img src={lawn} alt="my image" onClick={this.props.changePopupState} /></button></td>
                         </tr>
                         <tr>
-                            <td><button><img src={leaf} alt="my image" onClick={this.buttonClicked} /></button></td>
-                            <td><button><img src={snow} alt="my image" onClick={this.buttonClicked} /></button></td>
-                            <td><button><img src={trash} alt="my image" onClick={this.buttonClicked} /></button></td>
-                            <td><button><img src={broom} alt="my image" onClick={this.buttonClicked} /></button></td>
+                            <td><button><img src={leaf} alt="my image" onClick={this.props.changePopupState} /></button></td>
+                            <td><button><img src={snow} alt="my image" onClick={this.props.changePopupState} /></button></td>
+                            <td><button><img src={trash} alt="my image" onClick={this.props.changePopupState} /></button></td>
+                            <td><button><img src={broom} alt="my image" onClick={this.props.changePopupState} /></button></td>
                         </tr>
                     </table>
                     <button onClick={this.props.closePopup}>close me</button>
@@ -39,8 +39,7 @@ class ChooseType extends React.Component {
         );
     }
 
-    buttonClicked() {
-    }
+
 }
 
 export default ChooseType
