@@ -1,6 +1,10 @@
 import {Component} from "react";
 import React from "react";
 import './styles/register.css';
+import axios from "axios";
+import qs from "qs";
+import ReactDOM from "react-dom";
+import Main from "./Main";
 
 class Register extends Component{
 
@@ -29,6 +33,23 @@ class Register extends Component{
     onSubmit(event){
         event.preventDefault();
         if (this.state.password === this.state.confirmpswd){
+            axios.post('/api/user', qs.stringify({
+                login: this.state.login,
+                password: this.state.password,
+                confirmpswd : this.state.confirmpswd,
+                name: this.state.name,
+                surname: this.state.surname,
+                email: this.state.email,
+                phone: this.state.phone
+            })).then(function(response){
+                console.log(response);
+                if (response.status === 201) {
+                    ReactDOM.render(<Main />, document.getElementById('root'));
+                }
+            }).catch(function(error){
+                console.log(error);
+            });
+
             this.setState({
                     login: '',
                     password: '',
