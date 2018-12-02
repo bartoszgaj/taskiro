@@ -1,0 +1,43 @@
+header{
+    height: 50px;
+    width: 100%;
+    background-color: limegreen;
+    margin: 0;
+    padding:0;
+    display: flex;
+}
+
+header ul{
+    display:flex;
+    padding: 8px;
+    margin:0;
+    list-style-type: none;
+    height: 100%;
+}
+
+header ul li{
+    width: 200px;
+    height: 90%;
+    text-align: center;
+    padding: 2px 15px;
+    font-size: 19px;
+    border-right: 1px white dashed;
+}
+
+header ul li a{
+    color: white;
+    text-decoration: none;
+}
+
+header ul li:hover{
+    background-color: forestgreen;
+}
+
+header ul li:last-child{
+    border:none;
+}
+
+header ul li:hover > a{
+    color:white;
+    text-decoration: none;
+}
