@@ -3,8 +3,7 @@ import axios from 'axios';
 import {Map, Marker, InfoWindow, GoogleApiWrapper} from 'google-maps-react';
 import Button from "react-bootstrap/es/Button";
 import './MapContainer.css'
-import AddTaskModal from "./AddTaskModal";
-import Popup from "./Popup";
+import TaskModal from "./TaskModal";
 
 export class MapContainer extends Component{
 
@@ -77,14 +76,14 @@ export class MapContainer extends Component{
     render(){
         return (
             <div id="map">
-                <Button style={{position: 'fixed', zIndex: 10, bottom: 80, right: 50}}
-                        onClick={this.togglePopup.bind(this)}>Dodaj<br/>Task</Button>
+                <Button id="add-task-button" style={{zIndex: 10}}
+                        onClick={this.togglePopup}>+</Button>
 
 
                 {this.state.showPopup ?
-                    <Popup
+                    <TaskModal
                         text='Close Me'
-                        closePopup={this.togglePopup.bind(this)}
+                        closePopup={this.togglePopup}
                     />
                     : null
                 }
@@ -97,7 +96,6 @@ export class MapContainer extends Component{
                          lng: 19.94
                      }}
                      defaultOptions={{
-                         // these following 7 options turn certain controls off see link below
                          streetViewControl: false,
                          scaleControl: false,
                          mapTypeControl: false,
@@ -120,21 +118,6 @@ export class MapContainer extends Component{
                             key = {task.id}
                         />
                     )}
-
-                    <Marker
-                        onClick={this.onMarkerClick}
-                        title={'The marker`s title will appear as a tooltip.'}
-                        name={'SOMA'}
-                        position={{lat: 37.778519, lng: -122.405640}} />
-                    <Marker
-                        onClick={this.onMarkerClick}
-                        name={'Dolores park'}
-                        position={{lat: 37.759703, lng: -122.428093}} />
-                    <Marker
-                        onClick={this.onMarkerClick}
-                        name={'Your position'}
-                        position={{lat: 37.762391, lng: -122.439192}}
-                    />
 
                     <InfoWindow
                         marker={this.state.activeMarker}
