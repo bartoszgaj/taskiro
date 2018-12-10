@@ -46,7 +46,7 @@ class TaskForm extends React.Component {
             const random_lng = Math.random() + 19;
             const date = new Date().toISOString().slice(0,-5);
             const deadline = new Date(this.state.deadline).toISOString().slice(0, -5);
-            axios.post('/api/users/2/tasks', qs.stringify({
+            axios.post('/api/users/2/tasks', qs.stringify({ //zamiast 2 id usera potem
                 title: this.state.title, type:this.state.type, lat: random_lat, lng:random_lng, price: this.state.price, deadline: deadline, description: this.state.description,
                 addTime: date })).then(function(response){
 

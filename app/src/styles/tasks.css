@@ -1,0 +1,123 @@
+#task-box{
+    width: 100%;
+    height: 850px;
+    margin:0;
+}
+
+#task-box ul{
+    list-style-type: none;
+    display: flex;
+    justify-content: left;
+    width: 100%;
+    height: 100%;
+    margin:0;
+    padding:0 auto;
+    flex-wrap: wrap;
+}
+
+
+#task-box ul li{
+    flex: 0 0 22%;
+    height: 380px;
+    margin: 5px 20px;
+    background-color: bisque;
+    border-radius: 10px;
+    padding: 0;
+}
+
+.task{
+    width:100%;
+    height: 100%;
+    font-size: 15px;
+    margin: 0;
+    padding:0;
+    text-align: center;
+    color: saddlebrown;
+    display: block;
+}
+
+.task h3{
+    margin-top: 0;
+    padding: 8px;
+    border-bottom: 2px dashed saddlebrown;
+}
+
+.task span{
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 0 10px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 15px;
+}
+
+.buttons button{
+    width: 40%;
+    height: 40px;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.buttons button.modify{
+    background: green;
+}
+
+.buttons button.modify:hover{
+    background: darkgreen;
+}
+
+.buttons button.delete{
+    background: crimson;
+}
+
+.buttons button.delete:hover{
+    background: darkred;
+}
+
+.task form{
+    display:none;
+    width: 90%;
+    margin: 5px auto 0;
+}
+
+.task form label{
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.task form textarea{
+    height: 60px;
+    resize:none;
+    border-radius: 5px;
+}
+
+.task form input,button,select,textarea{
+    width: 100%;
+}
+
+.task form input[type="submit"],button{
+    border:none;
+    color: white;
+    background-color: limegreen;
+    border-radius: 5px;
+    height: 35px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.task input:focus,select:focus{
+    border: 1px solid limegreen;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.task form input[type="submit"]:hover,button:hover {
+    background-color: forestgreen;
+}

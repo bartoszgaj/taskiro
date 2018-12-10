@@ -110,12 +110,12 @@ export class MapContainer extends Component{
                      zoom={14}
                 >
 
-                    {this.state.tasks.map(task =>
+                    {this.state.tasks.map((task,index) =>
                         <Marker
                             onClick={this.onMarkerClick}
                             name={task.title}
                             position={task.coords}
-                            key = {task.id}
+                            key = {index}
                         />
                     )}
 
