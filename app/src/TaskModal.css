@@ -82,7 +82,7 @@
     border: 1px solid limegreen;
 }
 
-#task-modal form textarea:required{
+#task-modal form textarea:required, input:required{
     box-shadow: none;
 }
 
