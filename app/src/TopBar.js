@@ -19,7 +19,7 @@ class TopBar extends Component{
                 <ul>
                     <li><Link to="/map">Mapa</Link></li>
                     <li><Link to="/tutorial">Tutorial</Link></li>
-                    <li onClick={function(){alert("Zachara Chuj!")}}>Zachara Chuj</li>
+                    <li><Link to="/tasks">Taski</Link></li>
                 </ul>
             </header>
         )

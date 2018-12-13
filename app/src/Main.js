@@ -3,6 +3,7 @@ import SimpleMap from './MapContainer.js';
 import TopBar from './TopBar.js';
 import { BrowserRouter as Router, Route, Link, Redirect } from "react-router-dom";
 import Tutorial from "./Tutorial";
+import Tasks from "./Tasks.js";
 import './styles/Main.css';
 
 
@@ -16,6 +17,7 @@ class Main extends Component{
                     <TopBar />
                     <Route exact path={"/map"} component={SimpleMap}/>
                     <Route path={"/tutorial"} component={Tutorial}/>
+                        <Route path="/tasks" component={Tasks}/>
                     <Route path="*" render={() => (
                         <Redirect to="/map"/>
                     )}/>
