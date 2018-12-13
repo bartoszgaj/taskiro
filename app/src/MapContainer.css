@@ -17,3 +17,30 @@
 #add-task-button:hover{
     background: forestgreen;
 }
+
+
+.task-marker{
+    padding:10px;
+    box-sizing: border-box;
+    max-width: 200px;
+}
+
+.task-marker span {
+    display: block;
+    width: 100%;
+    text-align: left;
+}
+
+.task-marker span:first-child{
+    font-weight: bold;
+    text-align: center;
+}
+
+.task-marker span:nth-child(even){
+    font-weight: bold;
+}
+
+.task-marker button{
+    display: block;
+    margin: 10px auto 0;
+}

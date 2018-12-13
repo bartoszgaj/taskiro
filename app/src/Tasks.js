@@ -10,10 +10,12 @@ class Tasks extends Component{
     constructor(props){
         super(props);
 
-        this.state = {tasks: []};
+        this.state = {tasks: [],
+        currentPage: 0};
 
         this.retrieveTasks = this.retrieveTasks.bind(this);
         this.deleteTask = this.deleteTask.bind(this);
+        this.switchPage = this.switchPage.bind(this);
     }
 
     deleteTask(id){
@@ -32,7 +34,7 @@ class Tasks extends Component{
         const self = this;
         axios.get('/api/users/2/tasks')
             .then( function(response){
-                console.log(response.data);
+                //console.log(response.data);
                 const tasksRtrv = response.data;
                 self.setState({
                     tasks: tasksRtrv
@@ -44,6 +46,23 @@ class Tasks extends Component{
     }
 
 
+    switchPage(step){
+        let index = this.state.currentPage;
+        let lastIndex = Math.floor((this.state.tasks.length - 1) / 10);
+        if(index + step < 0){
+            this.setState({currentPage: lastIndex});
+        }
+        else if(index + step > lastIndex){
+            this.setState({currentPage: 0});
+        }
+        else{
+            this.setState({currentPage: index + step});
+        }
+
+    }
+
+
+
     componentDidMount() {
         this.retrieveTasks();
     }
@@ -52,8 +71,10 @@ class Tasks extends Component{
 
         return(
             <div id="task-box">
+                <div className="slider-button" id="next-page" onClick={() => this.switchPage(1)}> > </div>
+                <div className="slider-button" id="previous-page" onClick={() => this.switchPage(-1)}> {"<"} </div>
                 <ul>
-                {this.state.tasks.map((task, index) =>
+                {this.state.tasks.slice(this.state.currentPage * 10 , (this.state.currentPage + 1) * 10).map((task, index) =>
                     <li key = {index}>
                         <Task
                         data = {task}

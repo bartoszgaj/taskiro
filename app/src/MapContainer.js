@@ -4,6 +4,7 @@ import {Map, Marker, InfoWindow, GoogleApiWrapper} from 'google-maps-react';
 import Button from "react-bootstrap/es/Button";
 import './MapContainer.css'
 import TaskModal from "./TaskModal";
+import Pane from './Pane';
 
 export class MapContainer extends Component{
 
@@ -16,10 +17,9 @@ export class MapContainer extends Component{
             tasks: [],
             showingInfoWindow: false,
             activeMarker: {},
-            selectedPlace: {},
             showPopup: false,
+            selectedTask: {}
         };
-
 
         this.togglePopup = this.togglePopup.bind(this);
         this.onMarkerClick = this.onMarkerClick.bind(this);
@@ -52,11 +52,13 @@ export class MapContainer extends Component{
     }
 
     onMarkerClick(props, marker, e) {
+        const task = marker.task;
+        task.deadline = task.deadline.slice(0,10);
         this.setState({
-            selectedPlace: props,
+            selectedTask: task,
             activeMarker: marker,
             showingInfoWindow: true
-        })
+        });
     }
 
     onMapClick(props){
@@ -105,7 +107,7 @@ export class MapContainer extends Component{
                          fullscreenControl: false
                      }}
                      disableDefaultUI
-                     style={{width: '100%', height: '100%', position: 'relative',zIndex: 0}}
+                     style={{width: '100%', height: '100%',zIndex: 0}}
                      className={'map'}
                      zoom={14}
                 >
@@ -113,15 +115,19 @@ export class MapContainer extends Component{
                     {this.state.tasks.map((task,index) =>
                         <Marker
                             onClick={this.onMarkerClick}
-                            name={task.title}
+                            task={task}
                             position={task.coords}
                             key = {index}
-                        />
+                        >
+
+                        </Marker>
                     )}
 
                     <InfoWindow
-                        marker={this.state.activeMarker}
-                        visible={this.state.showingInfoWindow}/>
+                        visible={this.state.showingInfoWindow}
+                        marker={this.state.activeMarker}>
+                        <Pane task={this.state.selectedTask}/>
+                    </InfoWindow>
 
                 </Map>
 

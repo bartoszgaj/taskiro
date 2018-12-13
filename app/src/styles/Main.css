@@ -2,11 +2,11 @@ footer{
     height: 50px;
     width: 100%;
     background-color: limegreen;
-    position: fixed;
-    bottom: 0;
     text-align: center;
     color:white;
     font-size: 19px;
     padding-top: 10px;
     box-sizing: border-box;
 }
+
+
