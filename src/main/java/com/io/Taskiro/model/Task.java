@@ -29,7 +29,7 @@ public class Task {
     @NonNull
     private LatLng coords;
     @NonNull
-    private Integer price;
+    private Double price;
     @NonNull
     private LocalDateTime deadline;
     @NonNull

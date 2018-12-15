@@ -29,7 +29,7 @@ public class User {
     @NonNull
     private String password;
     @NonNull
-    private Integer phone;
+    private String phone;
 //    @OneToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
 //    private Set<Task> tasks;
 

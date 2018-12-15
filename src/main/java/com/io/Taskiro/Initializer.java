@@ -40,10 +40,10 @@ class Initializer implements CommandLineRunner {
 
     @Override
     public void run(String... strings) {
-        if(false){
+        if(true){
 
-            userRepository.deleteAll();
-            taskRepository.deleteAll();
+            //userRepository.deleteAll();
+            //taskRepository.deleteAll();
 
             Random rand = new Random();
 
@@ -53,7 +53,7 @@ class Initializer implements CommandLineRunner {
                 String email = name + "." + surname + "@gmail.com";
                 String login = name + surname;
                 String password = "123456";
-                Integer phone = 123123123;
+                String phone = "123123123";
 
                 userRepository.save(new User(name, surname, email, login, password,phone));
             }
@@ -65,7 +65,7 @@ class Initializer implements CommandLineRunner {
                 double lat = MIN_LAT + (MAX_LAT - MIN_LAT) * rand.nextDouble();
                 double lng = MIN_LNG + (MAX_LNG - MIN_LNG) * rand.nextDouble();
                 LatLng coords = new LatLng(lat, lng);
-                Integer price = rand.nextInt(95) + 5;
+                Double price = Double.valueOf(rand.nextInt(95) + 5);
                 LocalDateTime deadline = LocalDateTime.of(2018, 11, 29, 20, 20, 20);
                 LocalDateTime addTime = LocalDateTime.of(2018, 11, 29, 20, 20, 20);
                 taskRepository.save(new Task(title, description, type, coords, price, deadline, addTime));
