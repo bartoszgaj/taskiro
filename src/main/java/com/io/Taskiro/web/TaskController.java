@@ -49,7 +49,7 @@ class TaskController {
                                     @RequestParam TaskType type,
                                     @RequestParam Double lat,
                                     @RequestParam Double lng,
-                                    @RequestParam Integer price,
+                                    @RequestParam Double price,
                                     @RequestParam String deadline,
                                     @RequestParam String addTime
 

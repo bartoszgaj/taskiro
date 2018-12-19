@@ -68,7 +68,7 @@ class UserController {
                                     @RequestParam String email,
                                     @RequestParam String login,
                                     @RequestParam String password,
-                                    @RequestParam Integer phone) throws URISyntaxException {
+                                    @RequestParam String phone) throws URISyntaxException {
         log.info("Request to create user: {}");
         User n = new User(name,surname,email,login,password,phone);
 
