@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import '../../styles/task-modal.css';
-import broom from './resources/broom.png'
-import car from './resources/car.png'
-import cart from './resources/cart.png'
-import dog from './resources/dog.png'
-import lawn from './resources/lawn.png'
-import leaf from './resources/leaf.png'
-import snow from './resources/snow.png'
-import trash from './resources/trash.png'
+import broom from '../../resources/broom.png'
+import car from '../../resources/car.png'
+import cart from '../../resources/cart.png'
+import dog from '../../resources/dog.png'
+import lawn from '../../resources/lawn.png'
+import leaf from '../../resources/leaf.png'
+import snow from '../../resources/snow.png'
+import trash from '../../resources/trash.png'
 import axios from "axios";
 import qs from "qs";
 

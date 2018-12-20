@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import axios from "axios";
 import Task from './Task.js';
 import '../../styles/tasks.css'
-import {Marker} from "google-maps-react";
 
 
 class Tasks extends Component{

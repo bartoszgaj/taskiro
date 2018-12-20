@@ -3,7 +3,7 @@ import '../styles/login.css';
 import axios from 'axios';
 import qs from 'qs'
 import ReactDOM from "react-dom";
-import App from "./App";
+import App from "../App";
 
 
 
