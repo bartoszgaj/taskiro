@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './MapContainer.css';
+import '../../styles/map.css';
 
 
 class Pane extends Component{

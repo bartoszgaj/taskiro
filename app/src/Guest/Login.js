@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import './styles/login.css';
+import '../styles/login.css';
 import axios from 'axios';
 import qs from 'qs'
 import ReactDOM from "react-dom";
 import App from "./App";
-import Main from './Main';
 
 
 
@@ -34,7 +33,7 @@ class Login extends Component{
         })).then(function(response){
             console.log(response);
             if (response.status === 200) {
-                ReactDOM.render(<Main />, document.getElementById('root'));
+                ReactDOM.render(<App />, document.getElementById('root'));
             }
         }).catch(function(error){
             console.log(error);

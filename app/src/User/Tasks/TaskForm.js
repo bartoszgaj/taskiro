@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './TaskModal.css';
+import '../../styles/task-modal.css';
 import broom from './resources/broom.png'
 import car from './resources/car.png'
 import cart from './resources/cart.png'
@@ -10,8 +10,6 @@ import snow from './resources/snow.png'
 import trash from './resources/trash.png'
 import axios from "axios";
 import qs from "qs";
-import ReactDOM from "react-dom";
-import Main from "./Main";
 
 
 class TaskForm extends React.Component {

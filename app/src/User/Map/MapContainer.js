@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import {Map, Marker, InfoWindow, GoogleApiWrapper} from 'google-maps-react';
 import Button from "react-bootstrap/es/Button";
-import './MapContainer.css'
-import TaskModal from "./TaskModal";
+import '../../styles/map.css'
+import TaskModal from "./Tasks/TaskModal";
 import Pane from './Pane';
 
 export class MapContainer extends Component{

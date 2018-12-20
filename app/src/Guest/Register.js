@@ -1,10 +1,10 @@
 import {Component} from "react";
 import React from "react";
-import './styles/register.css';
+import '../styles/register.css';
 import axios from "axios";
 import qs from "qs";
 import ReactDOM from "react-dom";
-import Main from "./Main";
+import App from './App.js'
 
 class Register extends Component{
 
@@ -44,7 +44,7 @@ class Register extends Component{
             })).then(function(response){
                 console.log(response);
                 if (response.status === 201) {
-                    ReactDOM.render(<Main />, document.getElementById('root'));
+                    ReactDOM.render(<App />, document.getElementById('root'));
                 }
             }).catch(function(error){
                 console.log(error);

@@ -1,54 +1,28 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link, Redirect } from "react-router-dom";
-import Login from './login.js';
-import Register from './register.js';
+import { BrowserRouter as Router } from "react-router-dom";
+import TopBar from './TopBar.js';
+import Content from './Content';
+
 
 class App extends Component{
     render(){
         return(
             <div>
+                <Router>
+                    <div>
                 <TopBar/>
-                <Routing />
+
+                <Content />
+                    </div>
+                </Router>
                 <Footer />
             </div>
-    )
-    }
-}
-
-class Routing extends Component{
-
-    constructor(props) {
-        super(props);
-    }
-
-
-    render(){
-        return(
-            <Router>
-                <div id="login-box">
-                    <ul>
-                        <li>
-                            <Link to="/login">Sign in</Link>
-                        </li>
-                        <li>
-                            <Link to="/register">Register</Link>
-                        </li>
-                    </ul>
-                    <Route exact path="/login" component={Login} />
-                    <Route path="/register" component={Register} />
-                    <Route path="*" render={() => (
-                        <Redirect to="/login"/>
-                    )}/>
-                </div>
-            </Router>
         )
     }
 }
 
-const TopBar = ({ }) =>
-    <header>
-        Taskiro
-    </header>;
+
+
 
 const Footer = ({}) =>
     <footer>

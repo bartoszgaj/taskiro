@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './TaskModal.css';
+import '../../styles/task-modal.css';
 import TaskForm from "./TaskForm";
 
 
