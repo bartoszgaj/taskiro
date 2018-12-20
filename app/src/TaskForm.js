@@ -14,7 +14,7 @@ import ReactDOM from "react-dom";
 import Main from "./Main";
 
 
-class TaskForm extends React.Component {
+class TaskForm extends React.Component {
 
     constructor(props){
         super(props);
@@ -72,13 +72,19 @@ class TaskForm extends React.Component {
         else{
             console.log('NOPE');
         }
-/*
-
-*/
+        /*
+        */
     }
 
     onChange(event) {
         this.setState({[event.target.name]: event.target.value});
+    }
+
+    setDate(event) {
+        const d = new Date();
+        const tomorrow = d.setDate(d.getDate() + 1);
+        const deadline = new Date(tomorrow).toISOString().slice(0, 10);
+        this.setState({[event.target.name]: deadline});
     }
 
     setType(event) {
@@ -111,24 +117,25 @@ class TaskForm extends React.Component {
             <div className='chooseType'>
                 <div className='popup_inner'>
                     <form onSubmit={this.onSubmit}>
-                        <label>Tytuł: <input type="text" name="title" onChange={this.onChange} required/></label>
+                        <label>Tytuł: <input type="text" name="title" id="taskTitle" onChange={this.onChange} required/></label>
                         <label> Typ Taska:
-                                <ul>
-                                    <li><img src={car} alt="my image" onClick={this.setType} name="CAR"/></li>
-                                    <li><img src={cart} alt="my image" onClick={this.setType} name="SHOP"/></li>
-                                    <li><img src={dog} alt="my image" onClick={this.setType} name="DOG"/></li>
-                                    <li><img src={lawn} alt="my image" onClick={this.setType} name="LAWN"/></li>
-                                    <li><img src={leaf} alt="my image" onClick={this.setType} name="LEAF"/></li>
-                                    <li><img src={snow} alt="my image" onClick={this.setType} name="SNOW"/></li>
-                                    <li><img src={trash} alt="my image" onClick={this.setType} name="TRASH"/></li>
-                                    <li><img src={broom} alt="my image" onClick={this.setType} name="BROOM"/></li>
-                                </ul>
+                            <ul>
+                                <li><img src={car} alt="my image" onClick={this.setType} name="CAR"/></li>
+                                <li><img src={cart} alt="my image" onClick={this.setType} name="SHOP"/></li>
+                                <li><img src={dog} alt="my image" onClick={this.setType} name="DOG"/></li>
+                                <li><img src={lawn} alt="my image" onClick={this.setType} name="LAWN"/></li>
+                                <li><img src={leaf} alt="my image" onClick={this.setType} name="LEAF"/></li>
+                                <li><img src={snow} alt="my image" onClick={this.setType} name="SNOW"/></li>
+                                <li><img src={trash} alt="my image" onClick={this.setType} name="TRASH"/></li>
+                                <li><img src={broom} alt="my image" onClick={this.setType} name="BROOM"/></li>
+                            </ul>
                         </label>
-                        <label>Lokalizacja: <input type="text" name="location" onChange={this.onChange} required /> </label>
-                        <label>Wynagrodzenie (PLN): <input type="number" /*step="0.01"*/ name="price" onChange={this.onChange} required /></label>
-                        <label>Data Ważności:<input type="date" name="deadline" min={new Date(tomorrow).toISOString().slice(0, 10)} onChange={this.onChange} required /></label>
-                        <label>Krótki Opis: <textarea name="description" onChange={this.onChange} required/></label>
-                        <input type="submit" value="Dodaj Taska"/>
+                        <label>Lokalizacja: <input type="text" name="location" id="taskLocation" onChange={this.onChange} required /> </label>
+                        <label>Wynagrodzenie (PLN): <input type="number" /*step="0.01"*/ name="price" id="taskPrice" onChange={this.onChange} required /></label>
+                        {/*<label>Data Ważności:<input type="date" name="deadline" id="taskDeadline" min={new Date(tomorrow).toISOString().slice(0, 10)} value={new Date(tomorrow).toISOString().slice(0, 10)} onChange={this.onChange} onClick={this.setDate} required /></label>*/}
+                        <label>Data Ważności:<input type="date" name="deadline" id="taskDeadline" min={new Date(tomorrow).toISOString().slice(0, 10)} onChange={this.onChange}  required /></label>
+                        <label>Krótki Opis: <textarea name="description" id="taskDescription" onChange={this.onChange} required/></label>
+                        <input type="submit" value="Dodaj Taska" id="addTaskButton" />
                     </form>
 
 

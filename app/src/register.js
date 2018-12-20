@@ -97,7 +97,7 @@ const RegisterForm = ({onChange, onSubmit}) =>
         <label> Numer Telefonu:
             <input type="tel" onChange={onChange} name='phone' required/></label>
         <label>
-            <input type="submit" value="Utwórz konto"/> </label>
+            <input type="submit" value="Utwórz konto" name="registerAccount"/> </label>
     </form>;
 
 

@@ -17,9 +17,9 @@ class TopBar extends Component{
             <header>
                 <img src="" alt="Logo" />
                 <ul>
-                    <li><Link to="/map">Mapa</Link></li>
-                    <li><Link to="/tutorial">Tutorial</Link></li>
-                    <li><Link to="/tasks">Taski</Link></li>
+                    <li><Link to="/map" name="mapaPage" >Mapa</Link></li>
+                    <li><Link to="/tutorial" name="tutorialPage" >Tutorial</Link></li>
+                    <li><Link to="/tasks" name="taskiPage" >Taski</Link></li>
                 </ul>
             </header>
         )

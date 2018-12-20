@@ -64,7 +64,7 @@ const LoginForm =({onChange, onSubmit})=>
             <form id="loginForm" onSubmit={onSubmit}>
                 <input type="text" name="login" placeholder="login" onChange={onChange} required/>
                 <input type="password" name="password" placeholder="Hasło" onChange={onChange} required/>
-                <input type="submit" value="Zaloguj się"/>
+                <input type="submit" value="Zaloguj się" name="loginButton" />
             </form>;
 
 

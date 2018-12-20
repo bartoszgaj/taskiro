@@ -28,7 +28,7 @@ class TaskModal extends React.Component {
             <div id='task-modal'>
                 Dodaj Taska:
                 <TaskForm changePopupState={this.changePopupState}/>
-                <button onClick={this.props.closePopup.bind(this)}>Zamknij Okno</button>
+                <button name="closeTaskModal" onClick={this.props.closePopup.bind(this)}>Zamknij Okno</button>
             </div>
         );
     }
