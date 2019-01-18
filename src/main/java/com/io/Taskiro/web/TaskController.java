@@ -73,11 +73,38 @@ class TaskController {
     @GetMapping("/tasks")
     Collection<Task> tasks() {return taskRepository.findAll();}
 
+    //    @PutMapping("/task")
+//    ResponseEntity<Task> updateTask(@Valid @RequestBody Task task) {
+//        log.info("Request to update task: {}", task);
+//        Task result = taskRepository.save(task);
+//        return ResponseEntity.ok().body(result);
+//    }
+
     @PutMapping("/task")
-    ResponseEntity<Task> updateTask(@Valid @RequestBody Task task) {
-        log.info("Request to update task: {}", task);
-        Task result = taskRepository.save(task);
-        return ResponseEntity.ok().body(result);
+    ResponseEntity<Task> updateTask(@RequestParam(required = false) String title,
+                                    @RequestParam(required = false) String description,
+                                    @RequestParam(required = false) TaskType type,
+                                    @RequestParam(required = false) Double lat,
+                                    @RequestParam(required = false) Double lng,
+                                    @RequestParam(required = false) Double price,
+                                    @RequestParam(required = false) String deadline,
+                                    @RequestParam(required = false) String addTime) {
+        log.info("Request to update task:)");
+        Task task = taskRepository.findByTitle(title);
+        if(description!=null){
+            task.setDescription(description);
+        }
+        if(type!=null){
+            task.setType(type);
+        }
+        if(lat!=null && lng != null){
+            task.setCoords(new LatLng(lat, lng));
+        }
+        if(price!=null){
+            task.setPrice(price);
+        }
+
+        return ResponseEntity.ok().body(task);
     }
 
     @DeleteMapping("/task/{id}")
