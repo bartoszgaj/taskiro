@@ -1,6 +1,6 @@
 import {Component} from "react";
 import React from "react";
-import './styles/register.css';
+import '../styles/register.css';
 import axios from "axios";
 import qs from "qs";
 import ReactDOM from "react-dom";

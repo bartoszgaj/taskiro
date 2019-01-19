@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
-import './MapContainer.css';
+import '../styles/MapContainer.css';
+import axios from "axios";
+import qs from "qs";
+import ReactDOM from "react-dom";
+import Main from "./Main";
 
 
 class Pane extends Component{
@@ -11,7 +15,15 @@ class Pane extends Component{
     }
 
     reserveTask(){
-        console.log("Reserve task ");
+        /*
+        axios.post(link do backendu, qs.stringify({ dane do przesyłania | ewntualnie zmienić typ zapytania
+        })).then(function(response){
+
+        }).catch(function(error){
+            console.log(error);
+        });
+        */
+
     }
 
     render(){

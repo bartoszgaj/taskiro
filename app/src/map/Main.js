@@ -3,8 +3,8 @@ import SimpleMap from './MapContainer.js';
 import TopBar from './TopBar.js';
 import { BrowserRouter as Router, Route, Link, Redirect } from "react-router-dom";
 import Tutorial from "./Tutorial";
-import Tasks from "./Tasks.js";
-import './styles/Main.css';
+import Tasks from "../task/Tasks.js";
+import '../styles/Main.css';
 
 
 

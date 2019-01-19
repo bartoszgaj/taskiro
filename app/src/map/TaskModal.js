@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import './TaskModal.css';
+import '../styles/TaskModal.css';
 import TaskForm from "./TaskForm";
 
 
-class TaskModal extends React.Component {
+class TaskModal extends Component {
 
     constructor(props){
         super(props);

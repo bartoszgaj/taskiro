@@ -29,6 +29,7 @@
     display: block;
     margin: 20px 0;
     flex: 1 0 50%;
+    position: relative;
 }
 
 #task-modal form label:nth-child(odd){
@@ -111,5 +112,6 @@
 #task-modal button:hover{
     background-color: forestgreen;
 }
+
 
 

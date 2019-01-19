@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './TaskModal.css';
+import '../styles/TaskModal.css';
 import broom from './resources/broom.png'
 import car from './resources/car.png'
 import cart from './resources/cart.png'
@@ -145,7 +145,6 @@ class TaskForm extends React.Component {
                         </label>
                         <label>Lokalizacja: <input type="text" name="location" id="taskLocation" onChange={this.onChange} required className='location-search-input'/> </label>
                         <label>Wynagrodzenie (PLN): <input type="number" /*step="0.01"*/ name="price" id="taskPrice" onChange={this.onChange} required /></label>
-                        {/*<label>Data Ważności:<input type="date" name="deadline" id="taskDeadline" min={new Date(tomorrow).toISOString().slice(0, 10)} value={new Date(tomorrow).toISOString().slice(0, 10)} onChange={this.onChange} onClick={this.setDate} required /></label>*/}
                         <label>Data Ważności:<input type="date" name="deadline" id="taskDeadline" min={new Date(tomorrow).toISOString().slice(0, 10)} onChange={this.onChange}  required /></label>
                         <label>Krótki Opis: <textarea name="description" id="taskDescription" onChange={this.onChange} required/></label>
                         <input type="submit" value="Dodaj Taska" id="addTaskButton" />

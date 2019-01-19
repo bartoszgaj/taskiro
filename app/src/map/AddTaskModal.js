@@ -10,7 +10,6 @@ class Pane extends Component{
             <div className="backdrop" >
                 <div className="modal" >
                     {this.props.children}
-
                     <div className="footer">
                         <button onClick={this.props.onClose}>
                             Close

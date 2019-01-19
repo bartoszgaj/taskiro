@@ -47,7 +47,6 @@ class Routing extends Component{
 
 const TopBar = ({ }) =>
     <header>
-        Taskiro
     </header>;
 
 const Footer = ({}) =>

@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import './styles/login.css';
+import '../styles/login.css';
 import axios from 'axios';
 import qs from 'qs'
 import ReactDOM from "react-dom";
-import App from "./App";
 import Main from './Main';
 
 
