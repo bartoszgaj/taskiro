@@ -80,31 +80,75 @@ class TaskController {
 //        return ResponseEntity.ok().body(result);
 //    }
 
-    @PutMapping("/task")
-    ResponseEntity<Task> updateTask(@RequestParam(required = false) String title,
+    @PostMapping("/task")
+    ResponseEntity<Task> updateTask(@RequestParam String title,
                                     @RequestParam(required = false) String description,
                                     @RequestParam(required = false) TaskType type,
                                     @RequestParam(required = false) Double lat,
                                     @RequestParam(required = false) Double lng,
                                     @RequestParam(required = false) Double price,
                                     @RequestParam(required = false) String deadline,
-                                    @RequestParam(required = false) String addTime) {
+                                    @RequestParam(required = false) String addTime)
+    {
         log.info("Request to update task:)");
         Task task = taskRepository.findByTitle(title);
+        Task updatedTask = new Task();
         if(description!=null){
-            task.setDescription(description);
+            updatedTask.setDescription(description);
         }
-        if(type!=null){
-            task.setType(type);
-        }
-        if(lat!=null && lng != null){
-            task.setCoords(new LatLng(lat, lng));
-        }
-        if(price!=null){
-            task.setPrice(price);
+        else
+        {
+            updatedTask.setDescription(task.getDescription());
         }
 
-        return ResponseEntity.ok().body(task);
+        if(type!=null){
+            updatedTask.setType(type);
+        }
+        else
+        {
+            updatedTask.setType(task.getType());
+        }
+
+        if(lat!=null && lng!=null){
+            updatedTask.setCoords(new LatLng(lat, lng));
+        }
+        else
+        {
+            updatedTask.setCoords(task.getCoords());
+        }
+
+        if(price!=null){
+            updatedTask.setPrice(price);
+        }
+        else
+        {
+            updatedTask.setPrice(task.getPrice());
+        }
+
+        if(deadline!=null){
+            updatedTask.setDeadline(LocalDateTime.parse(deadline));
+        }
+        else
+        {
+            updatedTask.setDeadline(task.getDeadline());
+        }
+
+        if(addTime!=null){
+            updatedTask.setAddTime(LocalDateTime.parse(addTime));
+        }
+        else
+        {
+            updatedTask.setAddTime(task.getAddTime());
+        }
+
+        updatedTask.setId(task.getId());
+        updatedTask.setUser(task.getUser());
+
+
+        taskRepository.deleteById(task.getId());
+        taskRepository.save(updatedTask);
+
+        return ResponseEntity.ok().body(updatedTask);
     }
 
     @DeleteMapping("/task/{id}")
