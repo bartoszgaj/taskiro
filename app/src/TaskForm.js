@@ -10,8 +10,7 @@ import snow from './resources/snow.png'
 import trash from './resources/trash.png'
 import axios from "axios";
 import qs from "qs";
-import ReactDOM from "react-dom";
-import Main from "./Main";
+import {geocodeByAddress,getLatLng} from 'react-places-autocomplete';
 
 
 class TaskForm extends React.Component {
@@ -22,7 +21,8 @@ class TaskForm extends React.Component {
         this.state = {
             title: '',
             type: '',
-            location: '',
+            lat: '',
+            lng: '',
             price: '',
             deadline:'',
             description:''
@@ -35,23 +35,28 @@ class TaskForm extends React.Component {
     }
 
 
-    onSubmit(event){
+    onSubmit(event) {
+
 
         event.preventDefault();
 
         const self = this;
 
-        if(this.state.type !== ''){
-            const random_lat = Math.random() + 50;
-            const random_lng = Math.random() + 19;
-            const date = new Date().toISOString().slice(0,-5);
+        if (this.state.type !== '') {
+            const date = new Date().toISOString().slice(0, -5);
             const deadline = new Date(this.state.deadline).toISOString().slice(0, -5);
-            axios.post('/api/users/2/tasks', qs.stringify({ //zamiast 2 id usera potem
-                title: this.state.title, type:this.state.type, lat: random_lat, lng:random_lng, price: this.state.price, deadline: deadline, description: this.state.description,
-                addTime: date })).then(function(response){
+            axios.post('/api/users/2/tasks', qs.stringify({
+                title: this.state.title,
+                type: this.state.type,
+                lat: this.state.lat,
+                lng: this.state.lng,
+                price: this.state.price,
+                deadline: deadline,
+                description: this.state.description,
+                addTime: date
+            })).then(function (response) {
 
                 document.querySelector("form").reset();
-
 
                 const icon = document.querySelector("img[name='" + self.state.type + "']");
                 icon.style.border = '';
@@ -59,25 +64,33 @@ class TaskForm extends React.Component {
                 self.setState({
                     title: '',
                     type: '',
-                    location: '',
+                    lat: '',
+                    lng: '',
                     price: '',
-                    deadline:'',
-                    description:''
+                    deadline: '',
+                    description: ''
                 });
 
-            }).catch(function(error){
+            }).catch(function (error) {
                 console.log(error);
             })
         }
-        else{
-            console.log('NOPE');
-        }
-        /*
-        */
     }
 
+
+
+
     onChange(event) {
-        this.setState({[event.target.name]: event.target.value});
+        const self = this;
+        if(event.target.name === "location"){
+            geocodeByAddress(event.target.value)
+                .then(results => getLatLng(results[0]))
+                .then(latLng => self.setState({lat: latLng.lat, lng: latLng.lng}))
+                .catch(error => console.error('Error', error));
+        }
+        else {
+            this.setState({[event.target.name]: event.target.value});
+        }
     }
 
     setDate(event) {
@@ -130,7 +143,7 @@ class TaskForm extends React.Component {
                                 <li><img src={broom} alt="my image" onClick={this.setType} name="BROOM"/></li>
                             </ul>
                         </label>
-                        <label>Lokalizacja: <input type="text" name="location" id="taskLocation" onChange={this.onChange} required /> </label>
+                        <label>Lokalizacja: <input type="text" name="location" id="taskLocation" onChange={this.onChange} required className='location-search-input'/> </label>
                         <label>Wynagrodzenie (PLN): <input type="number" /*step="0.01"*/ name="price" id="taskPrice" onChange={this.onChange} required /></label>
                         {/*<label>Data Ważności:<input type="date" name="deadline" id="taskDeadline" min={new Date(tomorrow).toISOString().slice(0, 10)} value={new Date(tomorrow).toISOString().slice(0, 10)} onChange={this.onChange} onClick={this.setDate} required /></label>*/}
                         <label>Data Ważności:<input type="date" name="deadline" id="taskDeadline" min={new Date(tomorrow).toISOString().slice(0, 10)} onChange={this.onChange}  required /></label>
