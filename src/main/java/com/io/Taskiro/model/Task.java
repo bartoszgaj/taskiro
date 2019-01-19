@@ -17,6 +17,8 @@ import java.util.Date;
 @Table(name = "task_group")
 public class Task {
 
+
+
     @Id
     @GeneratedValue
     private Long id;
@@ -37,4 +39,75 @@ public class Task {
     @ManyToOne
     private User user;
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public TaskType getType() {
+        return type;
+    }
+
+    public void setType(TaskType type) {
+        this.type = type;
+    }
+
+    public LatLng getCoords() {
+        return coords;
+    }
+
+    public void setCoords(LatLng coords) {
+        this.coords = coords;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    public LocalDateTime getDeadline() {
+        return deadline;
+    }
+
+    public void setDeadline(LocalDateTime deadline) {
+        this.deadline = deadline;
+    }
+
+    public LocalDateTime getAddTime() {
+        return addTime;
+    }
+
+    public void setAddTime(LocalDateTime addTime) {
+        this.addTime = addTime;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 }
