@@ -22,5 +22,4 @@ class Pane extends Component{
 
 }
 
-
 export default Pane

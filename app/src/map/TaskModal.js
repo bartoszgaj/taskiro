@@ -3,13 +3,13 @@ import '../styles/TaskModal.css';
 import TaskForm from "./TaskForm";
 
 
-class TaskModal extends Component {
+class TaskModal extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
 
-        this.state={
-            isEdit:false,
+        this.state = {
+            isEdit: false,
         };
 
         this.changePopupState = this.changePopupState.bind(this);

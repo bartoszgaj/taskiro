@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import '../styles/TaskModal.css';
-import broom from './resources/broom.png'
-import car from './resources/car.png'
-import cart from './resources/cart.png'
-import dog from './resources/dog.png'
-import lawn from './resources/lawn.png'
-import leaf from './resources/leaf.png'
-import snow from './resources/snow.png'
-import trash from './resources/trash.png'
+import broom from '../resources/broom.png'
+import car from '../resources/car.png'
+import cart from '../resources/cart.png'
+import dog from '../resources/dog.png'
+import lawn from '../resources/lawn.png'
+import leaf from '../resources/leaf.png'
+import snow from '../resources/snow.png'
+import trash from '../resources/trash.png'
 import axios from "axios";
 import qs from "qs";
 import {geocodeByAddress,getLatLng} from 'react-places-autocomplete';
@@ -15,7 +15,7 @@ import {geocodeByAddress,getLatLng} from 'react-places-autocomplete';
 
 class TaskForm extends React.Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
 
         this.state = {
@@ -24,8 +24,8 @@ class TaskForm extends React.Component {
             lat: '',
             lng: '',
             price: '',
-            deadline:'',
-            description:''
+            deadline: '',
+            description: ''
         };
 
         this.onChange = this.onChange.bind(this);
@@ -36,7 +36,6 @@ class TaskForm extends React.Component {
 
 
     onSubmit(event) {
-
 
         event.preventDefault();
 
@@ -78,11 +77,9 @@ class TaskForm extends React.Component {
     }
 
 
-
-
     onChange(event) {
         const self = this;
-        if(event.target.name === "location"){
+        if (event.target.name === "location") {
             geocodeByAddress(event.target.value)
                 .then(results => getLatLng(results[0]))
                 .then(latLng => self.setState({lat: latLng.lat, lng: latLng.lng}))
@@ -113,15 +110,13 @@ class TaskForm extends React.Component {
             }
             event.target.style.border = '2px solid forestgreen';
         }
-        else{
+        else {
             event.target.style.border = '';
         }
-
-
     }
 
 
-    render(){
+    render() {
 
         const d = new Date();
         const tomorrow = d.setDate(d.getDate() + 1);
@@ -143,11 +138,17 @@ class TaskForm extends React.Component {
                                 <li><img src={broom} alt="my image" onClick={this.setType} name="BROOM"/></li>
                             </ul>
                         </label>
-                        <label>Lokalizacja: <input type="text" name="location" id="taskLocation" onChange={this.onChange} required className='location-search-input'/> </label>
-                        <label>Wynagrodzenie (PLN): <input type="number" /*step="0.01"*/ name="price" id="taskPrice" onChange={this.onChange} required /></label>
-                        <label>Data Ważności:<input type="date" name="deadline" id="taskDeadline" min={new Date(tomorrow).toISOString().slice(0, 10)} onChange={this.onChange}  required /></label>
-                        <label>Krótki Opis: <textarea name="description" id="taskDescription" onChange={this.onChange} required/></label>
-                        <input type="submit" value="Dodaj Taska" id="addTaskButton" />
+                        <label>Lokalizacja: <input type="text" name="location" id="taskLocation"
+                                                   onChange={this.onChange} required className='location-search-input'/>
+                        </label>
+                        <label>Wynagrodzenie (PLN): <input type="number" /*step="0.01"*/ name="price" id="taskPrice"
+                                                           onChange={this.onChange} required/></label>
+                        <label>Data Ważności:<input type="date" name="deadline" id="taskDeadline"
+                                                    min={new Date(tomorrow).toISOString().slice(0, 10)}
+                                                    onChange={this.onChange} required/></label>
+                        <label>Krótki Opis: <textarea name="description" id="taskDescription" onChange={this.onChange}
+                                                      required/></label>
+                        <input type="submit" value="Dodaj Taska" id="addTaskButton"/>
                     </form>
 
 
@@ -155,8 +156,6 @@ class TaskForm extends React.Component {
             </div>
         );
     }
-
-
 }
 
 export default TaskForm;

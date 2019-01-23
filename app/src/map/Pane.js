@@ -23,7 +23,6 @@ class Pane extends Component{
             console.log(error);
         });
         */
-
     }
 
     render(){

@@ -4,7 +4,7 @@ import '../styles/register.css';
 import axios from "axios";
 import qs from "qs";
 import ReactDOM from "react-dom";
-import Main from "./Main";
+import Main from "../map/Main";
 
 class Register extends Component{
 

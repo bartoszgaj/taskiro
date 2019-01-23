@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import SimpleMap from './MapContainer.js';
 import TopBar from './TopBar.js';
 import { BrowserRouter as Router, Route, Link, Redirect } from "react-router-dom";
-import Tutorial from "./Tutorial";
+import Tutorial from "../tutorial/Tutorial";
 import Tasks from "../task/Tasks.js";
 import '../styles/Main.css';
-
 
 
 class Main extends Component{
@@ -31,17 +30,10 @@ class Main extends Component{
 
 
 
-
-
 const Footer = ({}) =>
     <footer>
         Taskiro. All rights reserved &copy;
     </footer>;
-
-
-
-
-
 
 
 export default Main;

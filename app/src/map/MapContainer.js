@@ -6,9 +6,9 @@ import '../styles/MapContainer.css'
 import TaskModal from "./TaskModal";
 import Pane from './Pane';
 
-export class MapContainer extends Component{
+export class MapContainer extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
 
         console.log(props);
@@ -34,26 +34,24 @@ export class MapContainer extends Component{
     }
 
 
-
-
-    retrieveTasks(){
+    retrieveTasks() {
         const self = this;
         axios.get('/api/tasks')
-            .then( function(response){
+            .then(function (response) {
                 console.log(response.data);
                 const tasksRtrv = response.data;
                 self.setState({
                     tasks: tasksRtrv
                 });
             })
-            .catch( function(error){
+            .catch(function (error) {
                 console.log(error);
             })
     }
 
     onMarkerClick(props, marker, e) {
         const task = marker.task;
-        task.deadline = task.deadline.slice(0,10);
+        task.deadline = task.deadline.slice(0, 10);
         this.setState({
             selectedTask: task,
             activeMarker: marker,
@@ -61,7 +59,7 @@ export class MapContainer extends Component{
         });
     }
 
-    onMapClick(props){
+    onMapClick(props) {
         if (this.state.showingInfoWindow) {
             this.setState({
                 showingInfoWindow: false,
@@ -75,7 +73,7 @@ export class MapContainer extends Component{
     }
 
 
-    render(){
+    render() {
         return (
             <div id="map">
                 <Button id="add-task-button" style={{zIndex: 10}}
@@ -107,17 +105,17 @@ export class MapContainer extends Component{
                          fullscreenControl: false
                      }}
                      disableDefaultUI
-                     style={{width: '100%', height: '100%',zIndex: 0}}
+                     style={{width: '100%', height: '100%', zIndex: 0}}
                      className={'map'}
                      zoom={14}
                 >
 
-                    {this.state.tasks.map((task,index) =>
+                    {this.state.tasks.map((task, index) =>
                         <Marker
                             onClick={this.onMarkerClick}
                             task={task}
                             position={task.coords}
-                            key = {index}
+                            key={index}
                         >
 
                         </Marker>

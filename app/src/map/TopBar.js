@@ -3,22 +3,23 @@ import { Button, Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-boots
 import {Link} from "react-router-dom";
 import '../styles/top-bar.css';
 
-class TopBar extends Component{
+class TopBar extends Component {
 
     constructor(props) {
         super(props);
     }
 
 
-    render(){
+    render() {
 
 
-        return(
+        return (
             <header>
-                <img src="" alt="Logo" />
+                <img src="" alt="Logo"/>
                 <ul>
-                    <li><Link to="/map" name="mapaPage" >Mapa</Link></li>
-                    <li><Link to="/tasks" name="taskiPage" >Taski</Link></li>
+                    <li><Link to="/map" name="mapaPage">Mapa</Link></li>
+                    <li><Link to="/tutorial" name="tutorialPage">Tutorial</Link></li>
+                    <li><Link to="/tasks" name="taskiPage">Taski</Link></li>
                 </ul>
             </header>
         )
