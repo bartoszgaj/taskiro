@@ -7,7 +7,7 @@ import user_doc from '../resources/taskiro_user_doc.pdf'
 class Tutorial extends Component{
     render(){
         return(
-            <div id="tutorial-box">
+            <div id="tutorial-box" style={{color:'white', margin: '50px'}}>
                 HAHA
                 <Document file={"user_doc"} />
             </div>
